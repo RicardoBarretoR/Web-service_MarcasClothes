@@ -16,6 +16,7 @@
 <body>
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- Logo Image -->
         <div class="container">
           <a class="navbar-brand" href="#">
             <div class="col-lg-2 col-sm-2 text-center">
@@ -23,10 +24,8 @@
             </div>
           </a>
           
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
           <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Validation of requests -->
             <ul class="navbar-nav ml-auto">
               <%if (user) { %>
                   <li class="nav-item">
@@ -48,6 +47,7 @@
         </div>
       </nav>
     <div class="container">
+        <!-- Alert Messsages -->
         <% if (signupMessage.length > 0) { %>
             <div class="alert alert.danger">
                 <%= signupMessage %>
@@ -59,7 +59,7 @@
                 <%= signinMessage %>
             </div>
         <% } %>
-         
+        <!-- Design Template ejs --> 
         <%- body %>
     </div>
 

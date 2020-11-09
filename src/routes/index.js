@@ -3,6 +3,8 @@ const router = express.Router();
 
 const passport = require('passport');
 
+// Route Definition
+
 router.get('/', (req, res,  next) => {
     res.render('index');
 })
@@ -36,6 +38,7 @@ router.get('/profile', isAuthenticated, (req, res,  next) => {
     res.render('profile');
 });
 
+// Function that validates user authentication
 function isAuthenticated(req, res, next) {
     if(req.isAuthenticated()) {
         return next();

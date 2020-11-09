@@ -4,15 +4,18 @@ const LocalStrategy = require('passport-local').Strategy;
 
 const User = require('../models/user');
 
+// Data serialization in the browser
 passport.serializeUser((user, done) => {
     done(null, user.id);
 });
 
+// Database query with id
 passport.deserializeUser(async (id, done) => {
     const user = await User.findById(id);
     done(null, user);
 });
 
+// Function that validates the registration data
 passport.use('local-signup', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
@@ -32,6 +35,7 @@ passport.use('local-signup', new LocalStrategy({
     }
 }));
 
+// Function that validates the login data
 passport.use('local-signin', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password',
