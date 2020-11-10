@@ -1,67 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marca's Clothes</title>
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
-    <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="/css/main.css">
-    <!-- FONT AWESOME -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-    crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marca's Clothes</title>
+  <!-- BOOTSTRAP -->
+  <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="/css/main.css">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
+
 <body>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <!-- Logo Image -->
-        <div class="container">
-          <a class="navbar-brand" href="#">
-            <div class="col-lg-2 col-sm-2 text-center">
-              <img style="width: 150%;" src="/img/marcas.png" alt="marca's">
-            </div>
-          </a>
-          
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <!-- Validation of requests -->
-            <ul class="navbar-nav ml-auto">
-              <%if (user) { %>
-                  <li class="nav-item">
-                      <a class="nav-link" href="/profile">Profile</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="/logout">Exit</a>
-                  </li>
-              <% } else { %>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/signin">SignIn</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="/signup">Signup</a>
-                  </li>
-              <% } %>
-            </ul>
-          </div>
-        </div>
-      </nav>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <!-- Logo Image -->
     <div class="container">
-        <!-- Alert Messsages -->
-        <% if (signupMessage.length > 0) { %>
-            <div class="alert alert.danger">
-                <%= signupMessage %>
-            </div>
-        <% } %>
-    
-        <% if (signinMessage.length > 0) { %>
-            <div class="alert alert.danger">
-                <%= signinMessage %>
-            </div>
-        <% } %>
-        <!-- Design Template ejs --> 
-        <%- body %>
+      <a class="navbar-brand" href="#">
+        <div class="col-lg-2 col-sm-2 text-center">
+          <img style="width: 150%;" src="/img/marcas.png" alt="marca's">
+        </div>
+      </a>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <!-- Validation of requests -->
+        <ul class="navbar-nav ml-auto">
+          <%if (user) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Exit</a>
+          </li>
+          <% } else { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/signin">SignIn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Signup</a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
     </div>
+  </nav>
+  <div class="container">
+    <!-- Alert Messsages -->
+    <% if (signupMessage.length > 0) { %>
+    <div class="alert alert.danger">
+      <%= signupMessage %>
+    </div>
+    <% } %>
+
+    <% if (signinMessage.length > 0) { %>
+    <div class="alert alert.danger">
+      <%= signinMessage %>
+    </div>
+    <% } %>
+    <!-- Design Template ejs -->
+    <%- body %>
+  </div>
 
 </body>
+
 </html>

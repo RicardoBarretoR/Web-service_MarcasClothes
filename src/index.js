@@ -6,21 +6,21 @@ const passport = require('passport');
 const session = require('express-session');
 const flash = require('connect-flash');
 
-// Initializations
+/* Initializations */
 const app = express();
 require('./database');
-require('./passport/local-auth'); 
+require('./passport/local-auth');
 
-// settings
+/* settings */
 app.set('views', path.join(__dirname, 'views'));
 app.engine('ejs', engine);
 app.set('view engine', 'ejs');
 
 app.set('port', process.env.PORT || 3000);
 
-//middlewares
+/* middlewares */
 app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(session({
     secret: 'mysecretsession',
     resave: false,
@@ -37,13 +37,13 @@ app.use((req, res, next) => {
     next();
 });
 
-// routes
+/* routes */
 app.use('/', require('./routes/index'));
 
-// Static Files
+/* Static Files */
 app.use(express.static(path.join(__dirname, 'public')))
 
-//stating the server
+/* stating the server */
 app.listen(app.get('port'), () => {
     console.log('server on port', app.get('port'));
 });
